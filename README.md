@@ -16,6 +16,7 @@ To render JSP to HTML, simply remove Java code. Currently supported tags are:
 - `<c:otherwise>`
 - `<c:forEach>`
 - `<c:set>`
+- `<c:url>` with `<c:param>`
 - `<jsp:body>`
 - `<jsp:doBody>`
 - `<jsp:attribute>`
@@ -71,5 +72,5 @@ A custom tag handler must return a **string**.
 
 ## Usage with Express
 
-Please read the code of `test/tests.js` to have an idea of how to integrate this
+Please read the code of `demo/test.js` to have an idea of how to integrate this
 library with Express.
