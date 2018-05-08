@@ -9,6 +9,7 @@ To render JSP to HTML, simply remove Java code. Currently supported tags are:
 - `<%@taglib tagdir="[path]">`
 - `<%=..%>`
 - `${..}`
+- `${fn:xxx}` All fn:xxx functions, e.g. fn:length or fn:contains
 - `<c:if>`
 - `<c:else>`
 - `<c:choose>`
