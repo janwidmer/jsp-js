@@ -4,7 +4,7 @@
   "description": "render JSP to HTML",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
+    "test": "mocha --recursive",
     "demo": "supervisor demo/test.js"
   },
   "author": "Guillaume Pasquet",

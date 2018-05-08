@@ -89,14 +89,35 @@ describe('CoreLib', () => {
                     token: {
                         name: 'c:url',
                         type: 'tag',
-                        text: '<c:url value="/foo/bar" />'
-                    }
+                        params: {value: 'http://www.foo with spaces.com/bar'},
+                        text: '<c:url value="http://www.foo with spaces.com/bar"/>'
+                    },
+                    children: [
+                        {
+                            type: 'tag',
+                            token: {
+                                name: 'c:param',
+                                type: 'tag',
+                                params: {name: 'testParam1', value: 'value1;:-'},
+                                text: '<c:param name="testParam1" value="value1;:-" />'
+                            }
+                        },
+                        {
+                            type: 'tag',
+                            token: {
+                                name: 'c:param',
+                                type: 'tag',
+                                params: {name: 'testParam2', value: 'value2'},
+                                text: '<c:param name="testParam2" value="value2" />'
+                            }
+                        }
+                    ]
                 },
                 1,
                 data
             );
         };
-        assert.equal(test({val: true}), '/foo/bar');
+        assert.equal(test({val: true}), 'http://www.foo with spaces.com/bar?testParam1=value1%3B%3A-&testParam2=value2');
     });
 
     it('Supports setting variables from url tags', () => {
@@ -107,6 +128,7 @@ describe('CoreLib', () => {
                     token: {
                         name: 'c:url',
                         type: 'tag',
+                        params: {value: '/foo/bar'},
                         text: '<c:url var="thing" value="/foo/bar" />'
                     }
                 },
